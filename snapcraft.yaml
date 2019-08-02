@@ -1,0 +1,95 @@
+name: hedgewars
+version: 0.9.25
+summary: Hedgewars is a turn based strategy, artillery, action and comedy game
+description: |
+  Hedgewars is a turn based strategy, artillery, action and comedy game, featuring the antics of pink hedgehogs with attitude as they battle from the depths of hell to the depths of space.
+
+  As commander, it's your job to assemble your crack team of hedgehog soldiers and bring the war to your enemy.
+  
+  Game features:
+    - Hilarious and strategic turn based combat for up to 8 players
+    - Both local and network multiplayer, with optional AI opponents
+    - Two singleplayer campaigns with a total of 24 missions
+    - Utilize 57 (and counting) devastating weapons and utilities! Defeat your foes with simple weapons like grenades or take it to the next level and trash entire landscapes with weapons like the watermelon bomb or piano strike
+    - Improve your skills in a total of more than 25 single missions for learning the game, target practice, challenges and just for fun
+    - Battle on an infinite number of randomly generated maps with 37 environments, or choose from 44 set image maps, or even draw your own in an editor
+    - Play the game your with 25 different game modifiers, tweak almost every aspect of the match
+    - Save your favourite gameplay settings in schemes
+    - Customize your team, with over 280 hats/costumes, 32 graves, 13 forts, 100s of flags and 13 unique voice packs
+    - Huge battles with up to 48 hedgehogs
+    - Play both singleplayer and multiplayer mini games
+    - If that's not enough, you can download tons of community content packs straight through the game or even plugin your own custom graves, maps, hats and costumes, and a lot of other artwork. See the HWKB to learn more
+
+confinement: strict
+#icon: resources/images/icon512.png
+base: core18
+
+apps:
+  hedgewars:
+    environment:
+      QT_PLUGIN_PATH: ${SNAP}/usr/lib/${SNAPCRAFT_ARCH_TRIPLET}/qt5/plugins
+      QML2_IMPORT_PATH: ${SNAP}/usr/lib/${SNAPCRAFT_ARCH_TRIPLET}/qt5/qml
+    command: desktop-launch hedgewars -platform xcb
+    plugs: [ x11, wayland, desktop, desktop-legacy, opengl, alsa, pulseaudio, network, network-bind ]
+
+parts:
+  hedgewars:
+    source-type: hg
+    source: https://hg.hedgewars.org/hedgewars/
+    source-tag: 
+    plugin: cmake
+    build-packages:
+      - qt5-qmake
+      - qttools5-dev
+      - build-essential
+      - qtdeclarative5-dev
+      - libqt5svg5-dev
+      - qttools5-dev-tools
+      - libqt5xmlpatterns5-dev
+      - qtmultimedia5-dev
+      - qtbase5-dev
+      - libevdev-dev
+      - libudev-dev
+      - qt3d5-dev
+      - libqt5websockets5-dev
+      - libqt5sensors5-dev
+    stage-packages:
+      - libqt5gui5
+      - libqt5qml5
+      - libqt5quick5
+      - libqt5widgets5
+      - libqt5network5
+      - libqt5multimedia5
+      - libqt5multimediawidgets5
+      - libqt5multimedia5-plugins
+      - libqt5svg5
+      - libqt5xml5
+      - libqt5xmlpatterns5
+      - libqt5printsupport5
+      - libqt5sql5-sqlite
+      - libqt5waylandclient5
+      - qtwayland5
+    after: [ desktop-qt5 ]
+  desktop-qt5:
+    build-packages:
+      - qtbase5-dev
+      - dpkg-dev
+    make-parameters:
+      - FLAVOR=qt5
+    plugin: make
+    source: https://github.com/ubuntu/snapcraft-desktop-helpers.git
+    source-subdir: qt
+    stage-packages:
+      - libxkbcommon0
+      - ttf-ubuntu-font-family
+      - dmz-cursor-theme
+      - light-themes
+      - adwaita-icon-theme
+      - gnome-themes-standard
+      - shared-mime-info
+      - libqt5gui5
+      - libgdk-pixbuf2.0-0
+      - libqt5svg5
+      - locales-all
+      - xdg-user-dirs
+
