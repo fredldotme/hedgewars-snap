@@ -22,7 +22,6 @@ description: |
 
 confinement: strict
 base: core18
-#icon: resources/images/icon512.png
 
 apps:
   hedgewars:
@@ -64,6 +63,7 @@ parts:
         - libavcodec-dev
         - libavformat-dev
         - freeglut3-dev
+        - libglew-dev
         - ghc
         - libghc-binary-dev
         - libghc-bytestring-show-dev
