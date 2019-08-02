@@ -28,9 +28,11 @@ apps:
   hedgewars:
     environment:
       QT_PLUGIN_PATH: ${SNAP}/usr/lib/${SNAPCRAFT_ARCH_TRIPLET}/qt5/plugins
-      QML2_IMPORT_PATH: ${SNAP}/usr/lib/${SNAPCRAFT_ARCH_TRIPLET}/qt5/qml
     command: desktop-launch hedgewars -platform xcb --data-dir=${SNAP}/share/hedgewars
     plugs: [ x11, wayland, desktop, desktop-legacy, opengl, alsa, pulseaudio, network, network-bind ]
+  hedgewars-server:
+    command: desktop-launch hedgewars-server
+    plugs: [ network, network-bind ]
 
 parts:
   hedgewars:
