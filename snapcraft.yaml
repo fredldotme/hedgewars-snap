@@ -29,7 +29,7 @@ apps:
     environment:
       QT_PLUGIN_PATH: ${SNAP}/usr/lib/${SNAPCRAFT_ARCH_TRIPLET}/qt5/plugins
       QML2_IMPORT_PATH: ${SNAP}/usr/lib/${SNAPCRAFT_ARCH_TRIPLET}/qt5/qml
-    command: desktop-launch hedgewars -platform xcb
+    command: desktop-launch hedgewars -platform xcb --data-dir=${SNAP}/share/hedgewars
     plugs: [ x11, wayland, desktop, desktop-legacy, opengl, alsa, pulseaudio, network, network-bind ]
 
 parts:
@@ -109,6 +109,8 @@ parts:
         - qt5-style-plugins
         - ttf-dejavu-core
         - zlib1g
+        - libglu1-mesa
+        - libslang2
     after: [ desktop-qt5 ]
   desktop-qt5:
     build-packages:
