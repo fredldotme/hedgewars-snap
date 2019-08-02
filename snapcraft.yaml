@@ -88,7 +88,6 @@ parts:
         - libavcodec-extra57
         - libavformat57
         - libavutil55
-        - libc6
         - libffi6
         - libgcc1
         - libglew2.0
