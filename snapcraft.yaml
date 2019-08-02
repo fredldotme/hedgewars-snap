@@ -42,6 +42,7 @@ parts:
     plugin: cmake
     configflags: [ "-DNOSERVER=0" ]
     build-packages:
+        - clang
         - g++
         - qtbase5-dev
         - qtbase5-private-dev
