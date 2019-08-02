@@ -36,7 +36,8 @@ parts:
   hedgewars:
     source-type: hg
     source: https://hg.hedgewars.org/hedgewars/
-    source-tag: 
+    source-tag: 0.9.25-release
+    configflags: [ "-DNOSERVER=0" ]
     plugin: cmake
     build-packages:
       - qt5-qmake
