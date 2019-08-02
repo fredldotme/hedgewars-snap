@@ -91,7 +91,7 @@ parts:
         - libc6
         - libffi6
         - libgcc1
-        - libglew2.1
+        - libglew2.0
         - libgmp10
         - liblua5.1-0
         - libphysfs1
