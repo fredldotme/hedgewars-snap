@@ -1,5 +1,6 @@
 name: hedgewars
 version: 0.9.25
+grade: stable
 summary: A turn based strategy, artillery, action and comedy game
 description: |
   Hedgewars is a turn based strategy, artillery, action and comedy game, featuring the antics of pink hedgehogs with attitude as they battle from the depths of hell to the depths of space.
@@ -23,8 +24,17 @@ description: |
 confinement: strict
 base: core18
 architectures:
-  - build-on: [ amd64, i386, armhf, arm64 ]
-    run-on: [ amd64, i386, armhf, arm64 ]
+  - build-on: amd64
+    run-on: amd64
+    
+  - build-on: i386
+    run-on: i386
+
+  - build-on: armhf
+    run-on: armhf
+    
+  - build-on: arm64
+    run-on: arm64
 
 apps:
   hedgewars:
