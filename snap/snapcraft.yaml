@@ -1,5 +1,5 @@
 name: hedgewars
-version: 0.9.25
+version: 1.0.0
 grade: stable
 summary: A turn based strategy, artillery, action and comedy game
 description: |
@@ -50,7 +50,8 @@ parts:
   hedgewars:
     source-type: hg
     source: https://hg.hedgewars.org/hedgewars/
-    source-tag: 0.9.25-release
+    source-commit: 7ab5cf405686
+    #source-tag: 0.9.25-release
     plugin: cmake
     configflags: [ "-DNOSERVER=0" ]
     build-packages:
