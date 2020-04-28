@@ -50,8 +50,8 @@ parts:
   hedgewars:
     source-type: hg
     source: https://hg.hedgewars.org/hedgewars/
-    source-commit: 7ab5cf405686
-    #source-tag: 0.9.25-release
+    #source-commit: 7ab5cf405686
+    source-tag: 1.0.0-release
     plugin: cmake
     configflags: [ "-DNOSERVER=0" ]
     build-packages:
