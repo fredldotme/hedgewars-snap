@@ -151,4 +151,5 @@ parts:
         - libqt5svg5
         - locales-all
         - xdg-user-dirs
+        - qtwayland5
 
